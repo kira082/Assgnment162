@@ -1,0 +1,6 @@
+Pen down the limitations of MapReduce.
+
+1.It’s based on disk based computing So it is not is fast as spark.
+2.Suitable for not iterative computations like spark.
+3.Needs a sequence of MR jobs to run iterative tasks.
+4. Needs integration with several other frameworks/tools to solve bigdata
