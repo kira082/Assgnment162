@@ -1,0 +1,31 @@
+List down few Spark RDD operations and explain each of them.
+
+Actions - operations that trigger computation and return values
+
+Actions are RDD operations that produce non-RDD values. In other words, a
+RDD operation that returns a value of any type except RDD[T] is an action.
+
+They trigger execution of RDD transformations to return values. Simply put,
+an action evaluates the RDD lineage graph.
+
+You can think of actions as a valve and until action is fired, the data to be
+processed is not even in the pipes, i.e. transformations. Only actions can
+materialize the entire processing pipeline with real data.
+
+Actions are one of two ways to send data from executors to the driver
+
+Transformations - lazy operations that return another RDD
+
+Transformations are lazy operations on a RDD that create one or many new RDDs,
+e.g. map, filter, reduceByKey, join, cogroup, randomSplit.
+
+They are functions that take a RDD as the input and produce one or many RDDs as the
+output. They do not change the input RDD (since RDDs are immutable), but always
+produce one or more new RDDs by applying the computations they represent.
+
+Transformations are lazy, i.e. are not executed immediately. Only after calling an action
+are transformations executed.
+
+After executing a transformation, the result RDD(s) will always be different from their
+parents and can be smaller (e.g. filter, count, distinct, sample), bigger (e.g. flatMap,
+union, cartesian) or the same size (e.g. map).
