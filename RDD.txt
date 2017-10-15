@@ -1,0 +1,25 @@
+What is RDD? Explain few features of RDD?
+
+RDD- Resilient Distributed Dataset
+It is the primary abstraction in Spark and is the core of Apache Spark.
+One could compare RDDs to collections in Scala, i.e. a RDD is computed on
+many JVMs while a Scala collection lives on a single JVM.
+
+Features of RDD
+
+Resilient, i.e. fault-tolerant with the help of RDD lineage graph and so
+able to recompute missing or damaged partitions due to node failures
+
+Distributed with data residing on multiple nodes in a cluster.
+
+Dataset is a collection of partitioned data with primitive values or
+values of values, e.g. tuples or other objects
+
+Immutable or Read-Only, i.e. it does not change once created and can
+only be transformed using transformations to new RDDs.
+
+Lazy evaluated, i.e. the data inside RDD is not available or transformed
+until an action is executed that triggers the execution.
+
+Cacheable, i.e. you can hold all the data in a persistent "storage" like
+memory
